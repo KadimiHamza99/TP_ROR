@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Auteurs</h1>
+<form action="/searchAUT">
+<div class="input-group mb-3">
+  <button class="btn btn-warning" type="submit" id="button-addon1">CHERCHER L'AUTEUR</button>
+  <input type="text" name="q" class="form-control" placeholder="ENTRER LA NOM DE L'AUTEUR">
+</div>
+</form>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Nom</th>
+      <th>Prenom</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @auteurs.each do |auteur| %>
+      <tr>
+        <td><%= auteur.nom %></td>
+        <td><%= auteur.prenom %></td>
+        <td><button class="btn btn-dark btn-sm"><%= link_to 'Show', auteur %></td>
+        <td><button class="btn btn-success btn-sm"><%= link_to 'Edit', edit_auteur_path(auteur) %></td>
+        <td><button class="btn btn-danger btn-sm"><%= link_to 'Destroy', auteur, method: :delete, data: { confirm: 'Are you sure?' } %></button></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<button class="btn btn-primary"><%= link_to 'New Auteur', new_auteur_path %>

@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Materiels</h1>
+<form action="/searchMAT">
+<div class="input-group mb-3">
+  <button class="btn btn-warning" type="submit" id="button-addon1">CHERCHER LE MATERIEL</button>
+  <input type="text" name="q" class="form-control" placeholder="ENTRER LA MARQUE DU MATERIEL">
+</div>
+</form>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Marque</th>
+      <th>Os</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @materiels.each do |materiel| %>
+      <tr>
+        <td><%= materiel.marque %></td>
+        <td><%= materiel.os %></td>
+        <td><button class="btn btn-dark btn-sm"><%= link_to 'Show', materiel %></td>
+        <td><button class="btn btn-success btn-sm"><%= link_to 'Edit', edit_materiel_path(materiel) %></button></td>
+        <td><button class="btn btn-danger btn-sm"><%= link_to 'Destroy', materiel, method: :delete, data: { confirm: 'Are you sure?' } %></button></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Materiel', new_materiel_path %>

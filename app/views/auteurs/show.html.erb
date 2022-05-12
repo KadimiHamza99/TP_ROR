@@ -1,0 +1,47 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nom:</strong>
+  <%= @auteur.nom %>
+</p>
+
+<p>
+  <strong>Prenom:</strong>
+  <%= @auteur.prenom %>
+</p>
+
+<%= link_to 'Edit', edit_auteur_path(@auteur) %> |
+<%= link_to 'Back', auteurs_path %>
+
+<hr>
+
+<h1>New document</h1>
+
+<%= render 'documents/form' %>
+
+
+<hr>
+
+<h1>Listing documents</h1>
+
+<table class="table">
+  <tr>
+    <th>Titre</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @auteur.documents.each do |document| %>
+<% if document.persisted? %>
+  <tr>
+    <td><%= document.titre %></td>
+    <td><button class="btn btn-primary btn-sm"><%= link_to 'Show', [document.auteur, document] %></td>
+    <td><button class="btn btn-primary btn-sm"><%= link_to 'Destroy', [document.auteur, document], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+  <% end %>
+<% end %>
+</table>
+
+<br />
+

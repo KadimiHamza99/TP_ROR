@@ -1,0 +1,27 @@
+<%= form_with(model: materiel) do |form| %>
+  <% if materiel.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(materiel.errors.count, "error") %> prohibited this materiel from being saved:</h2>
+
+      <ul>
+        <% materiel.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :marque %>
+    <%= form.text_field :marque,class: 'form-control' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :os %>
+    <%= form.select :os,Materiel::OS_OPTIONS %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,13 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Titre:</b>
+  <%= @document.titre %>
+</p>
+
+<p>
+  <b>Auteur:</b>
+  <%= @document.auteur.nom %>
+</p>
+
+<%= link_to 'Back', @document.auteur %>

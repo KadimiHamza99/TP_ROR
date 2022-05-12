@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Adherents</h1>
+<form action="/searchADH">
+<div class="input-group mb-3">
+  <button class="btn btn-warning" type="submit" id="button-addon1">SEARCH</button>
+  <input type="text" name="q" class="form-control" placeholder="ENTRER LE NOM DE L'ADHERENT">
+</div>
+</form>
+<form action="/export">
+  <button class="btn btn-sm btn-success" type="submit" id="button-addon1">EXPORT TO CSV</button>
+</form>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Nom</th>
+      <th>Prenom</th>
+      <th>Status</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @adherents.each do |adherent| %>
+      <tr>
+        <td><%= adherent.nom %></td>
+        <td><%= adherent.prenom %></td>
+        <td><%= adherent.status %></td>
+        <td><button class="btn btn-dark btn-sm"><%= link_to 'Show', adherent %></td>
+        <td><button class="btn btn-success btn-sm"><%= link_to 'Edit', edit_adherent_path(adherent) %></td>
+        <td><button class="btn btn-danger btn-sm"><%= link_to 'Destroy', adherent, method: :delete, data: { confirm: 'Are you sure?' } %></button></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Adherent', new_adherent_path %>

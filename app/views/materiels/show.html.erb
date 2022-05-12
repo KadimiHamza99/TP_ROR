@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Marque:</strong>
+  <%= @materiel.marque %>
+</p>
+
+<p>
+  <strong>Os:</strong>
+  <%= @materiel.os %>
+</p>
+
+<%= link_to 'Edit', edit_materiel_path(@materiel) %> |
+<%= link_to 'Back', materiels_path %>
